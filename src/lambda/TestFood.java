@@ -28,6 +28,25 @@ public class TestFood {
            String result = "yellow";
             return result;
         });
+
+//        name("xiaoming", new People() {
+//            @Override
+//            public String name(String name) {
+//                return name;
+//            }
+//        });
+        //未省略lambda
+        name("xiaoming",(String name) ->{
+            return name;
+        });
+        //省略lambda
+        /**
+         * 1、小括号里参数类型可以省略
+         * 2、如果只有一个参数，小括号可以省略
+         * 3、如果大括号内有且只有一个语句，大括号可以省略，分号可以省略，若是返回语句，return可以省略
+         */
+
+        name("xiaoming",name -> name);
     }
 
     public static void eat(Food food) {
@@ -36,5 +55,10 @@ public class TestFood {
     public static void wear(int num, String color, Cloth cloth){
         String wear = cloth.wear(num, color);
         System.out.println(wear);
+    }
+    public static String name(String name,People people){
+        String s = people.name(name);
+        System.out.println(s);
+        return s;
     }
 }
